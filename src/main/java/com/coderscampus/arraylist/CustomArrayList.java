@@ -1,24 +1,43 @@
 package com.coderscampus.arraylist;
 
 public class CustomArrayList<T> implements CustomList<T> {
-	Object[] items = new Object[10];
+	Integer arrayListSize = 10;
+	Integer itemIndex = 0; 
+	Object[] items = new Object[arrayListSize];
 
 	@Override
 	public boolean add(T item) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		try {
+			items[itemIndex] = item;
+			
+			if (itemIndex == arrayListSize - 1) {
+				arrayListSize *= 2; 
+				
+				Object[] tempArray = new Object[arrayListSize]; 
+				
+				for (int i = 0; i < items.length; i++) {
+					tempArray[i] =  items[i];
+				}
+				
+				items = tempArray;
+			}
+			
+			itemIndex++;
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	@Override
 	public int getSize() {
-		// TODO Auto-generated method stub
-		return 0;
+		return itemIndex;
 	}
 
 	@Override
 	public T get(int index) {
-		// TODO Auto-generated method stub
-		return null;
+		return (T) items[index];
 	}
 	
 }
