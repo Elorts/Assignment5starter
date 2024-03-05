@@ -1,30 +1,25 @@
 package com.coderscampus.arraylist;
 
+import java.util.Arrays;
+
 public class CustomArrayList<T> implements CustomList<T> {
-	Integer arrayListSize = 10;
-	Integer itemIndex = 0; 
-	Object[] items = new Object[arrayListSize];
+	Integer capacity = 10;
+	Integer size = 0;
+	Object[] items = new Object[capacity];
 
 	@Override
 	public boolean add(T item) {
 		
 		try {
 			
-			if (itemIndex == arrayListSize) {
-				arrayListSize *= 2; 
-				
-				Object[] tempArray = new Object[arrayListSize]; 
-				
-				for (int i = 0; i < items.length; i++) {
-					tempArray[i] =  items[i];
-				}
-				
-				items = tempArray;
+			if (size == capacity) {
+				capacity *= 2;
+				items = Arrays.copyOf(items, capacity);
 			}
 			
-			items[itemIndex] = item;
+			items[size] = item;
 			
-			itemIndex++;
+			size++;
 			return true;
 		} catch (Exception e) {
 			System.out.println("Error!");
@@ -34,12 +29,11 @@ public class CustomArrayList<T> implements CustomList<T> {
 
 	@Override
 	public int getSize() {
-		return itemIndex;
+		return size;
 	}
 
 	@Override
 	public T get(int index) {
 		return (T) items[index];
 	}
-	
 }
