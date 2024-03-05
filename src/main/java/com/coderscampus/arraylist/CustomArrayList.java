@@ -7,7 +7,6 @@ public class CustomArrayList<T> implements CustomList<T> {
 	Integer size = 0;
 	Object[] items = new Object[capacity];
 
-	
 	@Override
 	public boolean add(T item) {
 		
