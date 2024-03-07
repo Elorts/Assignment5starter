@@ -27,7 +27,6 @@ public class CustomArrayList<T> implements CustomList<T> {
 		}
 	}
 
-	
 	@Override
 	public int getSize() {
 		return size;
