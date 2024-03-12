@@ -36,4 +36,5 @@ public class CustomArrayList<T> implements CustomList<T> {
 	public T get(int index) {
 		return (T) items[index];
 	}
+	
 }
