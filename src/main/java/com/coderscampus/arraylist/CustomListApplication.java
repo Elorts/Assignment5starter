@@ -10,7 +10,7 @@ public class CustomListApplication {
 		
 		// Add elements
 		for (int i = 0; i < 40; i++) {
-			myCustomList.add("element " + (i+ 1));
+			myCustomList.add("element " + (i + 1));
 		}
 		
 		System.out.println("CustomArrayList size after addition of elements: " + myCustomList.getSize());

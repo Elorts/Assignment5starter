@@ -9,9 +9,8 @@ public class CustomArrayList<T> implements CustomList<T> {
 	public boolean add(T item) {
 		
 		try {
-			items[itemIndex] = item;
 			
-			if (itemIndex == arrayListSize - 1) {
+			if (itemIndex == arrayListSize) {
 				arrayListSize *= 2; 
 				
 				Object[] tempArray = new Object[arrayListSize]; 
@@ -23,9 +22,12 @@ public class CustomArrayList<T> implements CustomList<T> {
 				items = tempArray;
 			}
 			
+			items[itemIndex] = item;
+			
 			itemIndex++;
 			return true;
 		} catch (Exception e) {
+			System.out.println("Error!");
 			return false;
 		}
 	}
